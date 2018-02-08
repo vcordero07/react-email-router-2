@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import Sidebar from "./sidebar";
 import SingleEmail from "./single-email";
 import EmailList from "./email-list";
@@ -13,6 +18,7 @@ export default function Email() {
         <main>
           <Switch>
             {/* <SingleEmail folderId="inbox" emailId="1" /> */}
+            <Redirect exact from="/" to="/inbox" />
             <Route exact path="/:folderId" component={EmailList} />
             <Route exact path="/:folderId/:emailId" component={SingleEmail} />
           </Switch>
